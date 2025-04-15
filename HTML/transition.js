@@ -328,7 +328,7 @@ function toggleLogoutMenu() {
 }
 
 function logout() {
-    window.location.href = "loginpage.html";
+    window.location.href = "index.html";
 }
 
 /*Xử lý đánh giá sao*/
