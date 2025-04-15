@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bóng Đá Hiền Hòa</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="../imgs/logotab.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+    <!-- Thông Báo -->
+    <div id="announcementModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeAnnouncementModal()">&times;</span>
+            <h2>📢 Thông báo từ Hiền Hòa</h2>
+            <p>⚽ Sân bóng Hiền Hòa sẽ bảo trì vào cuối tuần này (Thứ 7 và Chủ nhật). Vui lòng sắp xếp lịch đá phù hợp nhé!</p>
+        </div>
+    </div>
+    <!-- Form đăng nhập -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeLoginForm()">&times;</span>
+            <img src="/imgs/logo.png" alt="">
+            <h2>Đăng Nhập Tài Khoản</h2>
+            <form>
+                <label for="username">Tên đăng nhập:</label>
+                <input type="text" id="username" name="username" placeholder="Tên người dùng/Email" required>
+                <label for="password">Mật khẩu:</label>
+                <input type="password" id="password" name="password" placeholder="Mật khẩu" required>
+                <button type="button" onclick="window.location.href='mainpage.html'">Đăng nhập</button>
+            </form>
+            <div class="help">
+                <p class="no-acc" onclick="openRecoverForm()">Quên mật khẩu</p>
+                <p onclick="openRegisterForm()" class="no-acc">Đăng ký ngay</p>
+            </div>
+            <p class="another-login">Đăng nhập bằng phương thức khác</p>
+            <div class="login-icon">
+                <img src="/imgs/facebook.png" alt="">
+                <img src="/imgs/google-icon.png" alt="">
+                <img src="/imgs/X icon.png" alt="" >
+            </div>
+        </div>
+    </div>
+    <!-- Form Đăng ký -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeRegisterForm()">&times;</span>
+            <img src="/imgs/logo.png" alt="Logo">
+            <h2>Đăng ký tài khoản</h2>
+            <input type="text" placeholder="Tên đăng nhập">
+            <input type="password" placeholder="Mật khẩu">
+            <input type="password" placeholder="Xác nhận mật khẩu">
+            <input type="email" placeholder="Email">
+            <button>Đăng ký</button>
+            <label for="text" class="return" onclick="switchToLogin()">↵Quay lại</label>
+        </div>
+    </div>
+    <!-- Khôi Phục Tài Khoản -->
+        <!-- Nhập email khôi phục -->
+        <div id="recoverModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeRecoverForm()">&times;</span>
+                <img src="/imgs/logo.png" alt="Logo">
+                <h2>Quên mật khẩu</h2>
+                <span>Nhập tài khoản</span>
+                <form>
+                    <input type="text" placeholder="Email khôi phục" required>
+                    <button type="submit" onclick="openRecoverForm1()">Tiếp</button>
+                    <label for="text" class="return" onclick="switchToLogin()">↵Quay lại</label>
+                </form>
+            </div>
+        </div>
+        <!-- Nhập mã xác nhận-->
+        <div id="recoverModal1" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeRecoverForm1()">&times;</span>
+                <img src="/imgs/logo.png" alt="Logo">
+                <h2>Quên mật khẩu</h2>
+                <span>Xác nhận bảo mật</span>
+                <form>
+                    <input type="text" placeholder="Mã xác nhận" required>
+                    <button type="submit" onclick="openRecoverForm2()">Tiếp</button>
+                    <label for="text" class="return" onclick="switchToRecover()">↵Quay lại</label>
+                </form>
+            </div>
+        </div>
+        <!-- Thiết lập mật khẩu-->
+        <div id="recoverModal2" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeRecoverForm2()">&times;</span>
+                <img src="/imgs/logo.png" alt="Logo">
+                <h2>Quên mật khẩu</h2>
+                <span>Thiết lập mật khẩu</span>
+                <form>
+                    <input type="password" placeholder="Mật khẩu mới" required>
+                    <input type="password" placeholder="Xác nhận mật khẩu mới" required>
+                    <button type="submit" onclick="closeRecoverForm2() ">Xác nhận</button>
+                    <label for="text" class="return" onclick="switchToRecover1()">↵Quay lại</label>
+                </form>
+            </div>
+        </div>       
+<body>
+    <!-- Phần Header-->
+    <div class="header-content">
+        <div class="header-left">
+            <a href="/HTML/loginpage.html"><img class="logo" src="../imgs/logo_white.png" alt="LogoHienHoa"></a>
+            <i class="fa-solid fa-location-dot" onclick="window.location.href='https://www.google.com/maps/place/S%C3%A2n+b%C3%B3ng+%C4%91a+hi%E1%BB%81n+ho%C3%A0/@12.8216296,108.0824953,17z/data=!3m1!4b1!4m6!3m5!1s0x3171ff3ab8b6188b:0x7ebaa0047023fbc7!8m2!3d12.8216296!4d108.0824953!16s%2Fg%2F11cr_q_yrp?entry=ttu&g_ep=EgoyMDI1MDMyNC4wIKXMDSoASAFQAw%3D%3D'">
+                <span> Bà Triệu, Thị trấn Quảng Phú, Huyện Cư M'gar, Đắk Lắk</span>
+            </i>
+        </div>
+        <div class="header-right">
+            <div class="announcement" onclick="openAnnouncementModal()">
+                <i class="fa-solid fa-bullhorn"></i>
+                <span>Thông báo</span>
+            </div>
+            <div class="history" onclick="openLoginForm()">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <span>Lịch sử</span>
+            </div>
+            <div class="login" onclick="openLoginForm()" id="loginButton">
+                <i class="fa-solid fa-circle-user"></i>
+                <span>Đăng nhập</span>
+            </div>
+        </div>
+    </div>
+    <!-- Phần Thân-->
+    <div class="section-content">
+        <!-- Hàng 1-->
+        <div class="row1">
+            <div class="info">
+                <h2>Sân bóng đá Hiền Hòa (4/5 <i class="fa-solid fa-star"></i>)</h2>
+                <ul class="info-list">
+                    <li><span class="label">Giờ mở cửa:</span><span class="value">6h - 23h</span></li>
+                    <li><span class="label">Số Lượng sân:</span><span class="value">04 sân</span></li>
+                    <li><span class="label">Kích Thước sân:</span><span class="value">Dài (40m) Ngang (20m)</span></li>
+                    <li><span class="label">Tổng diện tích:</span><span class="value">800m2</span></li>
+                    <li><span class="label">Tình trạng kinh doanh:</span><span class="value">Tốt</span></li>
+                    <li><span class="label">Giá sân:</span><span class="value">200.000 VNĐ</span></li>
+                    <li><span class="label">Giá sân giờ vàng:</span><span class="value">150.000 VNĐ</span></li>
+                </ul>
+                <div class="service">
+                    <span>Dịch vụ tiện tích</span>
+                        <ul>
+                            <li><i class="fa-solid fa-wifi"></i> Wifi</li>
+                            <li><i class="fa-solid fa-motorcycle"></i> Bãi đỗ xe</li>
+                            <li><i class="fa-solid fa-utensils"></i> Đồ ăn</li>
+                            <li><i class="fa-solid fa-whiskey-glass"></i> Trà đá</li>
+                        </ul>
+                </div>
+            </div>
+            <div class="slider-container">
+                <div class="picture" id="slider">
+                  <img src="../imgs/anhsanbong.jpg" alt="Sân bóng" class="active">
+                  <img src="/imgs/anuong.jpg" alt="Ăn uống">
+                </div>
+                <button id="prev">&#10094;</button>
+                <button id="next">&#10095;</button>
+            </div>
+        </div>
+        <!-- Hàng 2-->
+        <div class="row2">
+            <div class="img-center">
+                <img src="/imgs/Orange and Yellow Vibrant and Dynamic Construction X-Frame Banner.png" alt="">
+                
+            </div>
+        </div>
+        <!-- Hàng 3-->
+        <div class="row3">
+            <div class="booking-form">
+                <h2>Đặt Sân Bóng</h2>
+                <form>
+                    <div class="form-group" id="infoForm">
+                        <label for="name">Họ và Tên:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Số Điện Thoại:</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Ngày Đặt:</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Giờ Đặt:</label>
+                        <input type="time" id="time" name="time" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sub-field">Chọn loại sân:</label>
+                        <select id="sub-field" name="sub-field" required>
+                            <option value="">-- Chọn loại sân --</option>
+                            <option value="5">Sân 5 người 01</option>
+                            <option value="5">Sân 5 người 02</option>
+                            <option value="7">Sân 7 người 01</option>
+                            <option value="7">Sân 7 người 02</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="payment-method">Phương thức thanh toán:</label>
+                        <select id="payment-method" name="payment-method">
+                            <option value="">-- Phương thức thanh toán --</option>
+                            <option value="1">Chuyển khoản</option>
+                            <option value="2">Tiền mặt (Giảm 5%)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Ghi Chú:</label>
+                        <textarea id="notes" name="notes" placeholder="Nhập ghi chú nếu có..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn" onclick="openLoginForm()">Đặt Sân</button>
+                </form>
+            </div>
+            
+                <div class="review-section">
+                    <h3>Đánh giá sân bóng</h3>
+                    <div class="stars" onclick="openLoginForm()">
+                        <i class="fa-solid fa-star" data-value="1"></i>
+                        <i class="fa-solid fa-star" data-value="2"></i>
+                        <i class="fa-solid fa-star" data-value="3"></i>
+                        <i class="fa-solid fa-star" data-value="4"></i>
+                        <i class="fa-solid fa-star" data-value="5"></i>
+                    </div>
+                    <textarea placeholder="Viết đánh giá của bạn..." rows="4"></textarea>
+                    <button class="submit-review" onclick="openLoginForm()">Gửi đánh giá</button>
+                    <div class="user-reviews">
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="https://i.pravatar.cc/50?img=10" class="avatar">
+                                <div class="user-info">
+                                    <p class="user-name"><strong>Nguyễn Quóc Lá</strong></p>
+                                    <p class="user-rating">⭐⭐⭐⭐⭐</p>
+                                    <p class="user-comment">Dịch vụ tốt, tôi sẽ đá lại sân này vào lần tới</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="https://i.pravatar.cc/50?img=1" class="avatar">
+                                <div class="user-info">
+                                    <p class="user-name"><strong>Nguyễn Quốc Dũng</strong></p>
+                                    <p class="user-rating">⭐⭐⭐</p>
+                                    <p class="user-comment">Sân bóng cũng thường thôi, không bằng sân nhà tao mở</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="https://i.pravatar.cc/50?img=2" class="avatar">
+                                <div class="user-info">
+                                    <p class="user-name"><strong>Nguyễn Phúc Thịnh</strong></p>
+                                    <p class="user-rating">⭐⭐⭐⭐⭐</p>
+                                    <p class="user-comment">Tui không có nói chủ sân này là chồng tôi đâu</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="/imgs/daddy pld.jpg" class="avatar">
+                                <div class="user-info">
+                                    <p class="user-name"><strong>PL Duy Đá Đì</strong></p>
+                                    <p class="user-rating">⭐⭐⭐⭐</p>
+                                    <p class="user-comment">Áuuuuuuuuuuuuu</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="https://i.pravatar.cc/50?img=4" class="avatar">
+                                <div class="user-info">
+                                    <p class="user-name"><strong>Chu Thế Nam</strong></p>
+                                    <p class="user-rating">⭐</p>
+                                    <p class="user-comment">Dịch vụ quá tệ, có gọi đặt trước nhưng vẫn mất sân mặc dù đã gọi trước đó 1 ngày</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="https://i.pravatar.cc/50?img=6" class="avatar">
+                                <div class="user-info">
+                                    <p class="user-name"><strong>Tanu</strong></p>
+                                    <p class="user-rating">⭐⭐⭐⭐⭐</p>
+                                    <p class="user-comment">Dịch vụ rất tốt, nhân viên sân bóng hỗ trợ rất nhiệt tình!</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="https://i.pravatar.cc/50?img=7" class="avatar">
+                                <div class="user-info">
+                                    <p class="user-name"><strong>Bé Đào</strong></p>
+                                    <p class="user-rating">⭐⭐⭐⭐⭐</p>
+                                    <p class="user-comment">Chất lượng sân rất tốt!!!!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div> 
+    <!-- Phần Cuối-->
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h3>Sân Bóng Đá Hiền Hòa</h3>
+                <p>Địa chỉ: Bà Triệu, Thị trấn Quảng Phú, Cư M'gar, Đắk Lắk</p>
+                <p>Email: hienhoa@gmail.com</p>
+                <p>Điện thoại: 0123 456 789</p>
+            </div>
+            <div class="footer-right">
+                <h4>Theo dõi chúng tôi</h4>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/PITCHHIENHOA/?locale=vi_VN"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.youtube.com/?app=desktop&hl=vi"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.tiktok.com/foryou?lang=vi-VN"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sân Bóng Đá Hiền Hòa. All rights reserved.</p>
+        </div>
+    </div>
+    <script src="transition.js"></script>
+</body>
+</html>

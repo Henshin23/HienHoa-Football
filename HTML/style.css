@@ -1,0 +1,714 @@
+                                                    /*PHẦN NỘI DUNG ẨN*/
+.modal {/*Ẩn đi đối tượng*/
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.modal.show {/*Hiển thị đối tượng ẩn*/
+    display: flex;
+    opacity: 1;
+}
+.modal-content {/* Hiệu ứng phóng to dần khi đối tượng ẩn xuất hiện*/
+    transform: scale(0.8);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.modal-content.active {/* Khi modal hiển thị, thêm class active cho nội dung */
+    transform: scale(1);
+    opacity: 1;
+}
+.modal { /*Hiệu ứng nền tối khi bật các cửa sổ ẩn*/
+    position: fixed;
+    z-index: 1000;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+.modal-content { /*Định dạng hộp thoại các cửa sổ ẩn*/
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    font-weight: bold;
+}
+.close-btn { /* Nút đóng của các cửa sổ ẩn*/
+    position: absolute;
+    top: 10px; right: 15px;
+    font-size: 18px;
+    cursor: pointer;
+} 
+#announcementModal .modal-content h2 { /*Tiêu đề thông báo*/
+    margin-bottom: 10px;
+    color: #D3602C;
+    text-align: center;
+}
+#announcementModal .modal-content p { /*Nội dung thông báo*/
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+}
+.modal-content img{ /*Định dạng logo xuất hiện trong các cửa sổ ẩn*/
+    padding-left: 95px;
+    width: 50%;
+    height: 50%;
+}
+.modal-content h2{text-align: center} /*Định dạng cho tiêu đề form ẩn*/
+.modal-content input{ /*Định dạng cho các input của các form ẩn*/
+    width: 95.5%;
+    padding-block: 10px;
+    margin: 8px 0 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding-left: 15px;
+}
+.modal-content button {/*Định dạng cho nút nhấn các form ẩn*/
+    width: 100%;
+    padding-block: 10px;
+    background-color: #D3602C;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+}
+.modal-content button:hover {background-color: #FF6600;}/*Hiệu ứng nút nhấn các form ẩn*/
+/*Lynh*/
+.help{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.help p, a{
+    color: #FFA500;
+    text-decoration: underline;
+}
+.return{/*Định dạng cho nút quay lại của các form ẩn*/
+    font-size: 15px;
+    text-decoration: underline;
+    display: flex;
+    padding-top: 15px;
+    color: #FFA500;
+    justify-content: center;
+    cursor: pointer;
+}
+.another-login{/*Dòng chữ đăng nhập bằng phương thức khác*/
+    text-align: center;
+    font-size: 12px;
+    color: #aeacac;
+}
+.login-icon{/*Định dạng cho icon fb , x , gg*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-top: 5px;
+    cursor: pointer;
+}
+.login-icon img{
+    width: 40px;
+    padding: 0
+}
+.no-acc{cursor: pointer;}/*Chưa có tài khoản và gặp khó khăn*/
+.booking-history {/*Bảng lịch sử đặt sân*/
+    margin-top: 30px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 12px;
+}
+.booking-history h2 {
+    margin-bottom: 15px;
+}
+.booking-history table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+.booking-history th, .booking-history td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+.booking-history th {
+    background-color: #c75408;
+    color: white;
+}
+.booking-history {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    z-index: 999;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+.booking-history.show {
+    display: block;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+/* Overlay tối màn hình */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Đổi màu và độ mờ cho overlay */
+    display: none; /* Ẩn mặc định */
+    z-index: 999; /* Đảm bảo overlay nằm trên các phần tử khác */
+}
+.overlay.show {display: block}/* Khi modal lịch sử được mở, hiển thị overlay */
+
+                                                /*PHẦN NỘI DUNG HIỂN THỊ*/
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.header-content {/*Định dạng Header*/
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: rgb(66, 66, 66);
+    padding-inline: 40px;
+    padding-block: 10px;
+}
+.header-content.scrolled {/*Hiệu ứng đổ bóng header khi kéo xuống cuối trang*/
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    transition: box-shadow 0.3s ease-in-out;
+}
+.header-left {/*Phần bên trái Header_Logo và địa điểm*/
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    margin-right: 250px;
+}
+.logo{/*Logo có chu hien hoa*/
+    width: 35%;
+    padding-left: 40px;
+    padding-block: 10px;
+}
+.header-left i{/*Biểu tượng định vị*/
+    font-size: 20px;
+    padding-left: 75px;
+    color: #D3602C;
+}
+.header-left span{/*Địa chỉ sân bóng*/
+    font-family:'Times New Roman', Times, serif;
+    color: white;
+}
+.header-left span:hover, .header-left i:hover{/*Hiệu ứng địa chỉ*/
+    color: #FF6600;
+    transform: translateY(-5px);
+}
+.header-right{/*Phần bên phải Header*/
+    display: flex;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    color: white;
+}
+.announcement, .history, .login{/*Nút nhấn thông báo, lịch sử, đăng nhập*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center ;
+    gap: 10px;
+    cursor: pointer;
+}
+.announcement i, .history i, .login i{font-size: 30px}/*Biểu tượng của thông báo, lịch sử , đăng nhập*/
+.announcement span, .history span, .login span{font-weight: bold}/*Phần chữ của thông báo, lịch sử , đăng nhập*/
+.announcement:hover i,.announcement:hover span,.history:hover i,.history:hover span,.login:hover i,.login:hover span{/*Hiệu ứng của thông báo, lịch sử , đăng nhập*/
+    color: #FF6600;
+    transform: translateY(-5px);
+}
+.hidden{display: none;}/*Ẩn đi nút đăng xuất*/ 
+.user-avatar {/*Định dạng cho avatar*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+.user-avatar img {/*Định dạng cho avatar*/
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+.user-avatar:hover span {color: #FF6600;}/*Hiệu ứng của avatar*/
+.logout-menu button {/*Định dạng nút đăng xuất*/
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.section-content {/*Định dạng Section*/
+    display: flex;
+    flex-direction: column;
+    background-color: #F6F6F6;
+    padding: 20px 0 60px 0;
+}
+.section-content img{/*Định dạng chung cho các ảnh trong section*/
+    border-radius: 20px;
+    width: 80%;
+    margin: 30px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.row1{/*Hàng 1: Phần ảnh và thông tin sân bóng*/
+    display: flex;
+    padding: 0 10px;
+    gap: 20px;
+}
+.info{/*Thông tin*/
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-left: 115px;
+    margin-block: 30px;
+    width: 27%;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    max-height: 350px;
+    overflow-y: auto;
+}
+.info h2{font-weight: bold;}/*Tựa đề thông tin*/
+.info h2 i{/*Biểu tượng ngôi sao*/
+    color:#FFA500;
+    font-size: 25px;
+}
+.info ul{/*Nội dung thông tin*/
+    list-style-type: none;
+    padding: 0;
+}
+.info-list li{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+}
+.service{/*Phần dịch vụ*/
+    background-color: #e8e8e8;
+    padding: 20px 0 10px 20px;
+    margin-top: 15px;
+    border-radius: 6px;
+}
+.service span{
+    font-weight: bold;
+    font-size: 20px;
+}
+.service ul {list-style-type: none;}
+.service li {
+    margin-bottom: 10px;
+    gap: 8px;
+}
+.info .label{font-weight: bold;}
+.info .value{text-align: right;}
+.slider-container {/*Ảnh ở row1*/
+    position: relative;
+    width: 760px;
+    height: 360px;
+    margin: 40px 40px 40px 60px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+.picture {/*Định dạng ảnh ở row1*/
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.picture img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 95%;
+    height: 92%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    z-index: 0;
+}
+.picture img.active {/*Hiệu ứng fade của ảnh*/
+    opacity: 1;
+    z-index: 1;
+}
+button#prev,button#next {/* Nút điều hướng */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.slider-container:hover #prev,.slider-container:hover #next {opacity: 1;}
+/*Vị trí của nút điều hướng*/
+#prev {left: 25px}
+#next {right: 25px}
+
+.row2{/*Hàng 2: Ảnh quảng cáo*/
+    display: flex;
+    justify-content: space-between;
+}
+.img-center{text-align: center}
+
+.row3{/*Hàng 3: Phần đặt sân và đánh giá*/
+    display: flex;
+    justify-content: center;
+}
+.booking-form {/*Form đặt sân*/
+    margin-left: 130px;
+    background: white;
+    padding: 30px 48px;
+    padding-left: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 360px;
+}
+.booking-form h2 {/*Tựa đề form đặt sân*/
+    text-align: center;
+    margin-bottom: 20px;
+}
+.form-group {margin-bottom: 15px}/*Dãn cách giữa các label*/
+.form-group label {/*Định dạng cho các label*/
+    padding-right: 10px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.form-group textarea {resize: none}
+.form-group select{width: 377px}
+.submit-btn {/*Nút đặt sân*/
+    width: 105%;
+    background-color: #D3602C;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.submit-btn:hover { background-color: #ff6600}/*Hiệu ứng nút đặt sân*/
+.review-section {/*Phần đánh giá*/
+    width: 44%;
+    margin: 80px auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: sans-serif;
+}
+.review-section h3 {/*Tựa đề phần review*/
+    margin-bottom: 15px;
+    font-size: 24px;
+    font-weight: bold;
+}
+.review-section .stars {/*Định dạng cho biểu tượng ngôi sao phần đánh giá*/
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: #ccc;
+    cursor: pointer;
+}
+.review-header {/*Định dạng cho phần bình luận , avatar , đánh giá người dùng*/
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.review .avatar {
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    margin-left: 10px;
+}
+.user-name {
+    color: #D3602C;
+    font-weight: bold;
+}
+.user-rating {
+    font-size: 16px;
+    color: #FFA500;
+}
+.review-section .stars .fa-star:hover,.review-section .stars .fa-star.active {/*Hiệu ứng của biểu tượng ngôi sao*/
+    color: #FFA500;
+    transform: scale(1.5);
+}
+.review-section textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: none;
+    margin-bottom: 15px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+.submit-review {/*Nút gửi đánh giá*/
+    padding: 10px 20px;
+    background-color: #D3602C;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.submit-review:hover {background-color: #ff6600;}/*Hiệu ứng nút đánh giá*/
+.user-reviews {/*Định dạng phần chứa đánh giá của người dùng*/
+    margin-top: 15px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+.review {
+    display: flex;
+    background-color: #fafafa;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.user-name {
+    font-weight: bold;
+    color: #D3602C;
+    margin: 0;
+}
+
+.user-rating {
+    font-size: 18px;
+    color: #FFA500;
+    margin: 5px 0;
+}
+.user-comment {
+    margin: 0;
+    font-size: 14px;
+}
+
+.footer {/*Phần cuối trang web*/
+    background-color: #333;
+    color: #fff;
+    padding: 30px 50px 10px 50px;
+    font-family: sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-left,.footer-right {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-left h3,.footer-right h4 {
+    margin-bottom: 10px;
+    color: #FF6600;
+}
+
+.footer-left p {
+    margin: 4px 0;
+    font-size: 14px;
+}
+
+.social-icons a {
+    color: white;
+    margin-right: 10px;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+.social-icons a:hover {color: #FF6600}
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #666;
+    margin-top: 20px;
+    padding-top: 10px;
+    font-size: 14px;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .header-content {
+        flex-direction: column;
+        align-items: center;
+        padding-inline: 20px;
+    }
+
+    .header-left {
+        margin-right: 0;
+        align-items: center;
+    }
+
+    .logo {
+        width: 45%;
+        padding-left: 0;
+    }
+
+    .header-left i {
+        padding-left: 0;
+    }
+
+    .header-right {
+        justify-content: space-around;
+        width: 100%;
+        padding-top: 10px;
+    }
+
+    .row1, .row3 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .slider-container {
+        width: 90%;
+        height: 300px;
+        margin: 30px 0;
+    }
+
+    .info {
+        width: 80%;
+        margin: 20px 0;
+    }
+
+    .booking-form {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .review-section {
+        width: 85%;
+        margin: 50px auto;
+    }
+
+    .form-group select {
+        width: 100%;
+    }
+
+    .submit-btn {
+        width: 100%;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-left, .footer-right {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
+@media (max-width: 767px) {
+    .header-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .header-left {
+        margin-right: 0;
+        align-items: center;
+    }
+
+    .logo {
+        width: 60%;
+        padding-left: 0;
+    }
+
+    .header-left i {
+        padding-left: 0;
+    }
+
+    .header-right {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        padding-top: 10px;
+    }
+
+    .row1, .row3 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .slider-container {
+        width: 90%;
+        height: 200px;
+        margin: 20px 0;
+    }
+
+    .info {
+        width: 90%;
+        margin: 20px 0;
+    }
+
+    .booking-form {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .review-section {
+        width: 90%;
+        margin: 40px auto;
+    }
+
+    .form-group select {
+        width: 100%;
+    }
+
+    .submit-btn {
+        width: 100%;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-left, .footer-right {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
+@media (max-width: 767px) {
+    body {
+        background-color: lightblue !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    body {
+        background-color: lightgreen !important;
+    }
+}
