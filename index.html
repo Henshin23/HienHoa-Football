@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bóng Đá Hiền Hòa</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="../imgs/logotab.png">
+    <link rel="icon" type="image/png" href="logotab.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
     <!-- Thông Báo -->
@@ -20,7 +20,7 @@
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeLoginForm()">&times;</span>
-            <img src="/imgs/logo.png" alt="">
+            <img src="logo.png" alt="">
             <h2>Đăng Nhập Tài Khoản</h2>
             <form>
                 <label for="username">Tên đăng nhập:</label>
@@ -35,9 +35,9 @@
             </div>
             <p class="another-login">Đăng nhập bằng phương thức khác</p>
             <div class="login-icon">
-                <img src="/imgs/facebook.png" alt="">
-                <img src="/imgs/google-icon.png" alt="">
-                <img src="/imgs/X icon.png" alt="" >
+                <img src="facebook.png" alt="">
+                <img src="google-icon.png" alt="">
+                <img src="X icon.png" alt="" >
             </div>
         </div>
     </div>
@@ -45,13 +45,13 @@
     <div id="registerModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeRegisterForm()">&times;</span>
-            <img src="/imgs/logo.png" alt="Logo">
+            <img src="logo.png" alt="Logo">
             <h2>Đăng ký tài khoản</h2>
             <input type="text" placeholder="Tên đăng nhập">
             <input type="password" placeholder="Mật khẩu">
             <input type="password" placeholder="Xác nhận mật khẩu">
             <input type="email" placeholder="Email">
-            <button>Đăng ký</button>
+            <button type="submit" onclick="closeRegisterForm()">Đăng ký</button>
             <label for="text" class="return" onclick="switchToLogin()">↵Quay lại</label>
         </div>
     </div>
@@ -60,7 +60,7 @@
         <div id="recoverModal" class="modal">
             <div class="modal-content">
                 <span class="close-btn" onclick="closeRecoverForm()">&times;</span>
-                <img src="/imgs/logo.png" alt="Logo">
+                <img src="logo.png" alt="Logo">
                 <h2>Quên mật khẩu</h2>
                 <span>Nhập tài khoản</span>
                 <form>
@@ -74,7 +74,7 @@
         <div id="recoverModal1" class="modal">
             <div class="modal-content">
                 <span class="close-btn" onclick="closeRecoverForm1()">&times;</span>
-                <img src="/imgs/logo.png" alt="Logo">
+                <img src="logo.png" alt="Logo">
                 <h2>Quên mật khẩu</h2>
                 <span>Xác nhận bảo mật</span>
                 <form>
@@ -88,7 +88,7 @@
         <div id="recoverModal2" class="modal">
             <div class="modal-content">
                 <span class="close-btn" onclick="closeRecoverForm2()">&times;</span>
-                <img src="/imgs/logo.png" alt="Logo">
+                <img src="logo.png" alt="Logo">
                 <h2>Quên mật khẩu</h2>
                 <span>Thiết lập mật khẩu</span>
                 <form>
@@ -103,7 +103,7 @@
     <!-- Phần Header-->
     <div class="header-content">
         <div class="header-left">
-            <a href="/HTML/loginpage.html"><img class="logo" src="../imgs/logo_white.png" alt="LogoHienHoa"></a>
+            <a href="index.html"><img class="logo" src="logo_white.png" alt="LogoHienHoa"></a>
             <i class="fa-solid fa-location-dot" onclick="window.location.href='https://www.google.com/maps/place/S%C3%A2n+b%C3%B3ng+%C4%91a+hi%E1%BB%81n+ho%C3%A0/@12.8216296,108.0824953,17z/data=!3m1!4b1!4m6!3m5!1s0x3171ff3ab8b6188b:0x7ebaa0047023fbc7!8m2!3d12.8216296!4d108.0824953!16s%2Fg%2F11cr_q_yrp?entry=ttu&g_ep=EgoyMDI1MDMyNC4wIKXMDSoASAFQAw%3D%3D'">
                 <span> Bà Triệu, Thị trấn Quảng Phú, Huyện Cư M'gar, Đắk Lắk</span>
             </i>
@@ -150,8 +150,8 @@
             </div>
             <div class="slider-container">
                 <div class="picture" id="slider">
-                  <img src="../imgs/anhsanbong.jpg" alt="Sân bóng" class="active">
-                  <img src="/imgs/anuong.jpg" alt="Ăn uống">
+                  <img src="anhsanbong.jpg" alt="Sân bóng" class="active">
+                  <img src="anuong.jpg" alt="Ăn uống">
                 </div>
                 <button id="prev">&#10094;</button>
                 <button id="next">&#10095;</button>
@@ -160,7 +160,7 @@
         <!-- Hàng 2-->
         <div class="row2">
             <div class="img-center">
-                <img src="/imgs/Orange and Yellow Vibrant and Dynamic Construction X-Frame Banner.png" alt="">
+                <img src="Orange and Yellow Vibrant and Dynamic Construction X-Frame Banner.png" alt="">
                 
             </div>
         </div>
@@ -257,7 +257,7 @@
                     
                         <div class="review">
                             <div class="review-header">
-                                <img src="/imgs/daddy pld.jpg" class="avatar">
+                                <img src="daddy pld.jpg" class="avatar">
                                 <div class="user-info">
                                     <p class="user-name"><strong>PL Duy Đá Đì</strong></p>
                                     <p class="user-rating">⭐⭐⭐⭐</p>
@@ -265,7 +265,6 @@
                                 </div>
                             </div>
                         </div>
-                    
                         <div class="review">
                             <div class="review-header">
                                 <img src="https://i.pravatar.cc/50?img=4" class="avatar">

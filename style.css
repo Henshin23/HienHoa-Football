@@ -165,7 +165,7 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); /* Đổi màu và độ mờ cho overlay */
     display: none; /* Ẩn mặc định */
-    z-index: 999; /* Đảm bảo overlay nằm trên các phần tử khác */
+    z-index: 1000; /* Đảm bảo overlay nằm trên các phần tử khác */
 }
 .overlay.show {display: block}/* Khi modal lịch sử được mở, hiển thị overlay */
 
@@ -451,14 +451,6 @@ button#prev,button#next {/* Nút điều hướng */
     height: 50px;
     margin: 0;
     margin-left: 10px;
-}
-.user-name {
-    color: #D3602C;
-    font-weight: bold;
-}
-.user-rating {
-    font-size: 16px;
-    color: #FFA500;
 }
 .review-section .stars .fa-star:hover,.review-section .stars .fa-star.active {/*Hiệu ứng của biểu tượng ngôi sao*/
     color: #FFA500;

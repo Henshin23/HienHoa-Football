@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bóng Đá Hiền Hòa</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="../imgs/logotab.png">
+    <link rel="icon" type="image/png" href="logotab.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
     <!-- Thông Báo -->
@@ -44,7 +44,7 @@
     <!-- Phần Header-->
     <div class="header-content">
         <div class="header-left">
-            <a href="/HTML/mainpage.html"><img class="logo" src="../imgs/logo_white.png" alt="LogoHienHoa"></a>
+            <a href="mainpage.html"><img class="logo" src="logo_white.png" alt="LogoHienHoa"></a>
             <i class="fa-solid fa-location-dot" onclick="window.location.href='https://www.google.com/maps/place/S%C3%A2n+b%C3%B3ng+%C4%91a+hi%E1%BB%81n+ho%C3%A0/@12.8216296,108.0824953,17z/data=!3m1!4b1!4m6!3m5!1s0x3171ff3ab8b6188b:0x7ebaa0047023fbc7!8m2!3d12.8216296!4d108.0824953!16s%2Fg%2F11cr_q_yrp?entry=ttu&g_ep=EgoyMDI1MDMyNC4wIKXMDSoASAFQAw%3D%3D'">
                 <span> Bà Triệu, Thị trấn Quảng Phú, Huyện Cư M'gar, Đắk Lắk</span>
             </i>
@@ -95,8 +95,8 @@
             </div>
             <div class="slider-container">
                 <div class="picture" id="slider">
-                  <img src="../imgs/anhsanbong.jpg" alt="Sân bóng" class="active">
-                  <img src="/imgs/anuong.jpg" alt="Ăn uống">
+                  <img src="anhsanbong.jpg" alt="Sân bóng" class="active">
+                  <img src="anuong.jpg" alt="Ăn uống">
                 </div>
                 <button id="prev">&#10094;</button>
                 <button id="next">&#10095;</button>
@@ -105,7 +105,7 @@
         <!-- Hàng 2-->
         <div class="row2">
             <div class="img-center">
-                <img src="/imgs/Orange and Yellow Vibrant and Dynamic Construction X-Frame Banner.png" alt="">
+                <img src="Orange and Yellow Vibrant and Dynamic Construction X-Frame Banner.png" alt="">
             </div>
         </div>
         <!-- Hàng 3-->
@@ -155,96 +155,93 @@
                 </form>
             </div>
             
-                <div class="review-section">
-                    <h3>Đánh giá sân bóng</h3>
-                    <div class="stars">
-                        <i class="fa-solid fa-star" data-rating="1"></i>
-                        <i class="fa-solid fa-star" data-rating="2"></i>
-                        <i class="fa-solid fa-star" data-rating="3"></i>
-                        <i class="fa-solid fa-star" data-rating="4"></i>
-                        <i class="fa-solid fa-star" data-rating="5"></i>
+            <div class="review-section">
+                <h3>Đánh giá sân bóng</h3>
+                <div class="stars">
+                    <i class="fa-solid fa-star" data-rating="1"></i>
+                    <i class="fa-solid fa-star" data-rating="2"></i>
+                    <i class="fa-solid fa-star" data-rating="3"></i>
+                    <i class="fa-solid fa-star" data-rating="4"></i>
+                    <i class="fa-solid fa-star" data-rating="5"></i>
+                </div>
+                <textarea placeholder="Viết đánh giá của bạn..." rows="4" id="userReviewText"></textarea>
+                <button class="submit-review" onclick="submitReview()">Gửi đánh giá</button>
+                <div class="user-reviews" id="userReviews">
+                    <div class="review">
+                        <div class="review-header">
+                            <img src="https://i.pravatar.cc/50?img=10" class="avatar">
+                            <div class="user-info">
+                                <p class="user-name"><strong>Nguyễn Quóc Lá</strong></p>
+                                <p class="user-rating">⭐⭐⭐⭐⭐</p>
+                                <p class="user-comment">Dịch vụ tốt, tôi sẽ đá lại sân này vào lần tới</p>
+                            </div>
+                        </div>
                     </div>
-                    <textarea placeholder="Viết đánh giá của bạn..." rows="4" id="userReviewText"></textarea>
-                    <button class="submit-review" onclick="submitReview()">Gửi đánh giá</button>
-                    <div class="user-reviews" id="userReviews">
-                        <div class="review">
-                            <div class="review-header">
-                                <img src="https://i.pravatar.cc/50?img=10" class="avatar">
-                                <div class="user-info">
-                                    <p class="user-name"><strong>Nguyễn Quóc Lá</strong></p>
-                                    <p class="user-rating">⭐⭐⭐⭐⭐</p>
-                                    <p class="user-comment">Dịch vụ tốt, tôi sẽ đá lại sân này vào lần tới</p>
-                                </div>
+                    <div class="review">
+                        <div class="review-header">
+                            <img src="https://i.pravatar.cc/50?img=1" class="avatar">
+                            <div class="user-info">
+                                <p class="user-name"><strong>Nguyễn Quốc Dũng</strong></p>
+                                <p class="user-rating">⭐⭐⭐</p>
+                                <p class="user-comment">Sân bóng cũng thường thôi, không bằng sân nhà tao mở</p>
                             </div>
                         </div>
-                        <div class="review">
-                            <div class="review-header">
-                                <img src="https://i.pravatar.cc/50?img=1" class="avatar">
-                                <div class="user-info">
-                                    <p class="user-name"><strong>Nguyễn Quốc Dũng</strong></p>
-                                    <p class="user-rating">⭐⭐⭐</p>
-                                    <p class="user-comment">Sân bóng cũng thường thôi, không bằng sân nhà tao mở</p>
-                                </div>
+                    </div>
+                    <div class="review">
+                        <div class="review-header">
+                            <img src="https://i.pravatar.cc/50?img=2" class="avatar">
+                            <div class="user-info">
+                                <p class="user-name"><strong>Nguyễn Phúc Thịnh</strong></p>
+                                <p class="user-rating">⭐⭐⭐⭐⭐</p>
+                                <p class="user-comment">Tui không có nói chủ sân này là chồng tôi đâu</p>
                             </div>
                         </div>
-                    
-                        <div class="review">
-                            <div class="review-header">
-                                <img src="https://i.pravatar.cc/50?img=2" class="avatar">
-                                <div class="user-info">
-                                    <p class="user-name"><strong>Nguyễn Phúc Thịnh</strong></p>
-                                    <p class="user-rating">⭐⭐⭐⭐⭐</p>
-                                    <p class="user-comment">Tui không có nói chủ sân này là chồng tôi đâu</p>
-                                </div>
+                    </div>
+                    <div class="review">
+                        <div class="review-header">
+                            <img src="daddy pld.jpg" class="avatar">
+                            <div class="user-info">
+                                <p class="user-name"><strong>PL Duy Đá Đì</strong></p>
+                                <p class="user-rating">⭐⭐⭐⭐</p>
+                                <p class="user-comment">Áuuuuuuuuuuuuu</p>
                             </div>
                         </div>
-                    
-                        <div class="review">
-                            <div class="review-header">
-                                <img src="/imgs/daddy pld.jpg" class="avatar">
-                                <div class="user-info">
-                                    <p class="user-name"><strong>PL Duy Đá Đì</strong></p>
-                                    <p class="user-rating">⭐⭐⭐⭐</p>
-                                    <p class="user-comment">Áuuuuuuuuuuuuu</p>
-                                </div>
+                    </div>
+                    <div class="review">
+                        <div class="review-header">
+                            <img src="https://i.pravatar.cc/50?img=4" class="avatar">
+                            <div class="user-info">
+                                <p class="user-name"><strong>Chu Thế Nam</strong></p>
+                                <p class="user-rating">⭐</p>
+                                <p class="user-comment">Dịch vụ quá tệ, có gọi đặt trước nhưng vẫn mất sân mặc dù đã gọi trước đó 1 ngày</p>
                             </div>
                         </div>
-                    
-                        <div class="review">
-                            <div class="review-header">
-                                <img src="https://i.pravatar.cc/50?img=4" class="avatar">
-                                <div class="user-info">
-                                    <p class="user-name"><strong>Chu Thế Nam</strong></p>
-                                    <p class="user-rating">⭐</p>
-                                    <p class="user-comment">Dịch vụ quá tệ, có gọi đặt trước nhưng vẫn mất sân mặc dù đã gọi trước đó 1 ngày</p>
-                                </div>
+                    </div>
+                    <div class="review">
+                        <div class="review-header">
+                            <img src="https://i.pravatar.cc/50?img=6" class="avatar">
+                            <div class="user-info">
+                                <p class="user-name"><strong>Tanu</strong></p>
+                                <p class="user-rating">⭐⭐⭐⭐⭐</p>
+                                <p class="user-comment">Dịch vụ rất tốt, nhân viên sân bóng hỗ trợ rất nhiệt tình!</p>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="review">
-                            <div class="review-header">
-                                <img src="https://i.pravatar.cc/50?img=6" class="avatar">
-                                <div class="user-info">
-                                    <p class="user-name"><strong>Tanu</strong></p>
-                                    <p class="user-rating">⭐⭐⭐⭐⭐</p>
-                                    <p class="user-comment">Dịch vụ rất tốt, nhân viên sân bóng hỗ trợ rất nhiệt tình!</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="review">
-                            <div class="review-header">
-                                <img src="https://i.pravatar.cc/50?img=7" class="avatar">
-                                <div class="user-info">
-                                    <p class="user-name"><strong>Bé Đào</strong></p>
-                                    <p class="user-rating">⭐⭐⭐⭐⭐</p>
-                                    <p class="user-comment">Chất lượng sân rất tốt!!!!</p>
-                                </div>
+                    <div class="review">
+                        <div class="review-header">
+                            <img src="https://i.pravatar.cc/50?img=7" class="avatar">
+                            <div class="user-info">
+                                <p class="user-name"><strong>Bé Đào</strong></p>
+                                <p class="user-rating">⭐⭐⭐⭐⭐</p>
+                                <p class="user-comment">Chất lượng sân rất tốt!!!!</p>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
+    </div> 
     <!-- Phần Cuối-->
     <div class="footer">
         <div class="footer-content">
