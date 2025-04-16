@@ -95,8 +95,9 @@
             </div>
             <div class="slider-container">
                 <div class="picture" id="slider">
-                  <img src="anhsanbong.jpg" alt="Sân bóng" class="active">
-                  <img src="anuong.jpg" alt="Ăn uống">
+                  <img src="san7.jpg" alt="" class="active">
+                  <img src="san5.jpg" alt="">
+                  <img src="dichvu.jpg" alt="">
                 </div>
                 <button id="prev">&#10094;</button>
                 <button id="next">&#10095;</button>
