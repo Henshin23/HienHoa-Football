@@ -693,14 +693,4 @@ button#prev,button#next {/* Nút điều hướng */
         margin-bottom: 20px;
     }
 }
-@media (max-width: 767px) {
-    body {
-        background-color: lightblue !important;
-    }
-}
 
-@media (min-width: 768px) and (max-width: 1023px) {
-    body {
-        background-color: lightgreen !important;
-    }
-}
